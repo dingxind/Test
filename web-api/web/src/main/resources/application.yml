@@ -1,0 +1,23 @@
+#默认使用配置
+spring:
+  profiles:
+    active: #spring.profiles.active#
+  servlet:
+      multipart:
+          max-file-size: 100MB
+          max-request-size: 100MB
+          enabled: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  
+#mybatis
+mybatis-plus:
+  mapper-locations: xml/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.lunz.cpfw.web.entities

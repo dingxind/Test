@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "person",
+      "type": "com.xindong.quickspringboot.bean.Person",
+      "sourceType": "com.xindong.quickspringboot.bean.Person"
+    }
+  ],
+  "properties": [
+    {
+      "name": "person.age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.xindong.quickspringboot.bean.Person"
+    },
+    {
+      "name": "person.dog",
+      "type": "com.xindong.quickspringboot.bean.Dog",
+      "sourceType": "com.xindong.quickspringboot.bean.Person"
+    },
+    {
+      "name": "person.last-name",
+      "type": "java.lang.String",
+      "sourceType": "com.xindong.quickspringboot.bean.Person"
+    },
+    {
+      "name": "person.list",
+      "type": "java.util.List<java.lang.Object>",
+      "sourceType": "com.xindong.quickspringboot.bean.Person"
+    },
+    {
+      "name": "person.map",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.xindong.quickspringboot.bean.Person"
+    },
+    {
+      "name": "person.name",
+      "type": "java.lang.String",
+      "sourceType": "com.xindong.quickspringboot.bean.Person"
+    }
+  ],
+  "hints": []
+}

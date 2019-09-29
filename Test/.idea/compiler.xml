@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="web (1) (com.lunz.cpfw)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.7" />
+      <module name="common (1) (com.lunz.cpfw)" target="1.8" />
+      <module name="core" target="1.7" />
+      <module name="core (1) (com.lunz.cpfw)" target="1.8" />
+      <module name="cpfw" target="1.8" />
+      <module name="web" target="1.7" />
+      <module name="web (2) (com.lunz.cpfw)" target="1.8" />
+      <module name="web-api" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common" options="-parameters" />
+      <module name="common (1) (com.lunz.cpfw)" options="-parameters" />
+      <module name="core" options="-parameters" />
+      <module name="core (1) (com.lunz.cpfw)" options="-parameters" />
+      <module name="web" options="-parameters" />
+      <module name="web (1) (com.lunz.cpfw)" options="-parameters" />
+      <module name="web (2) (com.lunz.cpfw)" options="-parameters" />
+    </option>
+  </component>
+</project>

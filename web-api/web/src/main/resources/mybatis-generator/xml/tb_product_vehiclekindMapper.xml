@@ -1,0 +1,1546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis-generator.mapper.tb_product_vehiclekindMapper">
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_vehiclekind">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="ClientId" jdbcType="CHAR" property="clientid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="PositiveRentBaseInterestRate" jdbcType="DECIMAL" property="positiverentbaseinterestrate" />
+    <result column="LeasebackBaseInterestRate" jdbcType="DECIMAL" property="leasebackbaseinterestrate" />
+    <result column="IsUsed" jdbcType="BIT" property="isused" />
+    <result column="IsCurrent" jdbcType="BIT" property="iscurrent" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, UniqueId, ClientId, IsDisable, Name, Type, PositiveRentBaseInterestRate, LeasebackBaseInterestRate, 
+    IsUsed, IsCurrent, Version, CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, 
+    DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind (Id, UniqueId, ClientId, 
+      IsDisable, Name, Type, PositiveRentBaseInterestRate, 
+      LeasebackBaseInterestRate, IsUsed, IsCurrent, 
+      Version, CreatedAt, CreatedById, 
+      UpdatedAt, UpdatedById, Deleted, 
+      DeletedAt, DeletedById, JsonString
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{clientid,jdbcType=CHAR}, 
+      #{isdisable,jdbcType=BIT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{positiverentbaseinterestrate,jdbcType=DECIMAL}, 
+      #{leasebackbaseinterestrate,jdbcType=DECIMAL}, #{isused,jdbcType=BIT}, #{iscurrent,jdbcType=BIT}, 
+      #{version,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, 
+      #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="clientid != null">
+        ClientId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate,
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate,
+      </if>
+      <if test="isused != null">
+        IsUsed,
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    <set>
+      <if test="uniqueid != null">
+        UniqueId = #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        ClientId = #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        IsDisable = #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        IsUsed = #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent = #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    set UniqueId = #{uniqueid,jdbcType=CHAR},
+      ClientId = #{clientid,jdbcType=CHAR},
+      IsDisable = #{isdisable,jdbcType=BIT},
+      Name = #{name,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=CHAR},
+      PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      IsUsed = #{isused,jdbcType=BIT},
+      IsCurrent = #{iscurrent,jdbcType=BIT},
+      Version = #{version,jdbcType=INTEGER},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_vehiclekind">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="ClientId" jdbcType="CHAR" property="clientid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="PositiveRentBaseInterestRate" jdbcType="DECIMAL" property="positiverentbaseinterestrate" />
+    <result column="LeasebackBaseInterestRate" jdbcType="DECIMAL" property="leasebackbaseinterestrate" />
+    <result column="IsUsed" jdbcType="BIT" property="isused" />
+    <result column="IsCurrent" jdbcType="BIT" property="iscurrent" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, UniqueId, ClientId, IsDisable, Name, Type, PositiveRentBaseInterestRate, LeasebackBaseInterestRate, 
+    IsUsed, IsCurrent, Version, CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, 
+    DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind (Id, UniqueId, ClientId, 
+      IsDisable, Name, Type, PositiveRentBaseInterestRate, 
+      LeasebackBaseInterestRate, IsUsed, IsCurrent, 
+      Version, CreatedAt, CreatedById, 
+      UpdatedAt, UpdatedById, Deleted, 
+      DeletedAt, DeletedById, JsonString
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{clientid,jdbcType=CHAR}, 
+      #{isdisable,jdbcType=BIT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{positiverentbaseinterestrate,jdbcType=DECIMAL}, 
+      #{leasebackbaseinterestrate,jdbcType=DECIMAL}, #{isused,jdbcType=BIT}, #{iscurrent,jdbcType=BIT}, 
+      #{version,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, 
+      #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="clientid != null">
+        ClientId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate,
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate,
+      </if>
+      <if test="isused != null">
+        IsUsed,
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    <set>
+      <if test="uniqueid != null">
+        UniqueId = #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        ClientId = #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        IsDisable = #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        IsUsed = #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent = #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    set UniqueId = #{uniqueid,jdbcType=CHAR},
+      ClientId = #{clientid,jdbcType=CHAR},
+      IsDisable = #{isdisable,jdbcType=BIT},
+      Name = #{name,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=CHAR},
+      PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      IsUsed = #{isused,jdbcType=BIT},
+      IsCurrent = #{iscurrent,jdbcType=BIT},
+      Version = #{version,jdbcType=INTEGER},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_vehiclekind">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="ClientId" jdbcType="CHAR" property="clientid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="PositiveRentBaseInterestRate" jdbcType="DECIMAL" property="positiverentbaseinterestrate" />
+    <result column="LeasebackBaseInterestRate" jdbcType="DECIMAL" property="leasebackbaseinterestrate" />
+    <result column="IsUsed" jdbcType="BIT" property="isused" />
+    <result column="IsCurrent" jdbcType="BIT" property="iscurrent" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, UniqueId, ClientId, IsDisable, Name, Type, PositiveRentBaseInterestRate, LeasebackBaseInterestRate, 
+    IsUsed, IsCurrent, Version, CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, 
+    DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind (Id, UniqueId, ClientId, 
+      IsDisable, Name, Type, PositiveRentBaseInterestRate, 
+      LeasebackBaseInterestRate, IsUsed, IsCurrent, 
+      Version, CreatedAt, CreatedById, 
+      UpdatedAt, UpdatedById, Deleted, 
+      DeletedAt, DeletedById, JsonString
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{clientid,jdbcType=CHAR}, 
+      #{isdisable,jdbcType=BIT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{positiverentbaseinterestrate,jdbcType=DECIMAL}, 
+      #{leasebackbaseinterestrate,jdbcType=DECIMAL}, #{isused,jdbcType=BIT}, #{iscurrent,jdbcType=BIT}, 
+      #{version,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, 
+      #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="clientid != null">
+        ClientId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate,
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate,
+      </if>
+      <if test="isused != null">
+        IsUsed,
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    <set>
+      <if test="uniqueid != null">
+        UniqueId = #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        ClientId = #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        IsDisable = #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        IsUsed = #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent = #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    set UniqueId = #{uniqueid,jdbcType=CHAR},
+      ClientId = #{clientid,jdbcType=CHAR},
+      IsDisable = #{isdisable,jdbcType=BIT},
+      Name = #{name,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=CHAR},
+      PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      IsUsed = #{isused,jdbcType=BIT},
+      IsCurrent = #{iscurrent,jdbcType=BIT},
+      Version = #{version,jdbcType=INTEGER},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_vehiclekind">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="ClientId" jdbcType="CHAR" property="clientid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="PositiveRentBaseInterestRate" jdbcType="DECIMAL" property="positiverentbaseinterestrate" />
+    <result column="LeasebackBaseInterestRate" jdbcType="DECIMAL" property="leasebackbaseinterestrate" />
+    <result column="IsUsed" jdbcType="BIT" property="isused" />
+    <result column="IsCurrent" jdbcType="BIT" property="iscurrent" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, UniqueId, ClientId, IsDisable, Name, Type, PositiveRentBaseInterestRate, LeasebackBaseInterestRate, 
+    IsUsed, IsCurrent, Version, CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, 
+    DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind (Id, UniqueId, ClientId, 
+      IsDisable, Name, Type, PositiveRentBaseInterestRate, 
+      LeasebackBaseInterestRate, IsUsed, IsCurrent, 
+      Version, CreatedAt, CreatedById, 
+      UpdatedAt, UpdatedById, Deleted, 
+      DeletedAt, DeletedById, JsonString
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{clientid,jdbcType=CHAR}, 
+      #{isdisable,jdbcType=BIT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{positiverentbaseinterestrate,jdbcType=DECIMAL}, 
+      #{leasebackbaseinterestrate,jdbcType=DECIMAL}, #{isused,jdbcType=BIT}, #{iscurrent,jdbcType=BIT}, 
+      #{version,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, 
+      #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="clientid != null">
+        ClientId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate,
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate,
+      </if>
+      <if test="isused != null">
+        IsUsed,
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    <set>
+      <if test="uniqueid != null">
+        UniqueId = #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        ClientId = #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        IsDisable = #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        IsUsed = #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent = #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    set UniqueId = #{uniqueid,jdbcType=CHAR},
+      ClientId = #{clientid,jdbcType=CHAR},
+      IsDisable = #{isdisable,jdbcType=BIT},
+      Name = #{name,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=CHAR},
+      PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      IsUsed = #{isused,jdbcType=BIT},
+      IsCurrent = #{iscurrent,jdbcType=BIT},
+      Version = #{version,jdbcType=INTEGER},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_vehiclekind">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="ClientId" jdbcType="CHAR" property="clientid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="PositiveRentBaseInterestRate" jdbcType="DECIMAL" property="positiverentbaseinterestrate" />
+    <result column="LeasebackBaseInterestRate" jdbcType="DECIMAL" property="leasebackbaseinterestrate" />
+    <result column="IsUsed" jdbcType="BIT" property="isused" />
+    <result column="IsCurrent" jdbcType="BIT" property="iscurrent" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, UniqueId, ClientId, IsDisable, Name, Type, PositiveRentBaseInterestRate, LeasebackBaseInterestRate, 
+    IsUsed, IsCurrent, Version, CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, 
+    DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind (Id, UniqueId, ClientId, 
+      IsDisable, Name, Type, PositiveRentBaseInterestRate, 
+      LeasebackBaseInterestRate, IsUsed, IsCurrent, 
+      Version, CreatedAt, CreatedById, 
+      UpdatedAt, UpdatedById, Deleted, 
+      DeletedAt, DeletedById, JsonString
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{clientid,jdbcType=CHAR}, 
+      #{isdisable,jdbcType=BIT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{positiverentbaseinterestrate,jdbcType=DECIMAL}, 
+      #{leasebackbaseinterestrate,jdbcType=DECIMAL}, #{isused,jdbcType=BIT}, #{iscurrent,jdbcType=BIT}, 
+      #{version,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, 
+      #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="clientid != null">
+        ClientId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate,
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate,
+      </if>
+      <if test="isused != null">
+        IsUsed,
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    <set>
+      <if test="uniqueid != null">
+        UniqueId = #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        ClientId = #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        IsDisable = #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        IsUsed = #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent = #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    set UniqueId = #{uniqueid,jdbcType=CHAR},
+      ClientId = #{clientid,jdbcType=CHAR},
+      IsDisable = #{isdisable,jdbcType=BIT},
+      Name = #{name,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=CHAR},
+      PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      IsUsed = #{isused,jdbcType=BIT},
+      IsCurrent = #{iscurrent,jdbcType=BIT},
+      Version = #{version,jdbcType=INTEGER},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_vehiclekind">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="ClientId" jdbcType="CHAR" property="clientid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="PositiveRentBaseInterestRate" jdbcType="DECIMAL" property="positiverentbaseinterestrate" />
+    <result column="LeasebackBaseInterestRate" jdbcType="DECIMAL" property="leasebackbaseinterestrate" />
+    <result column="IsUsed" jdbcType="BIT" property="isused" />
+    <result column="IsCurrent" jdbcType="BIT" property="iscurrent" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, UniqueId, ClientId, IsDisable, Name, Type, PositiveRentBaseInterestRate, LeasebackBaseInterestRate, 
+    IsUsed, IsCurrent, Version, CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, 
+    DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_vehiclekind
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind (Id, UniqueId, ClientId, 
+      IsDisable, Name, Type, PositiveRentBaseInterestRate, 
+      LeasebackBaseInterestRate, IsUsed, IsCurrent, 
+      Version, CreatedAt, CreatedById, 
+      UpdatedAt, UpdatedById, Deleted, 
+      DeletedAt, DeletedById, JsonString
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{clientid,jdbcType=CHAR}, 
+      #{isdisable,jdbcType=BIT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{positiverentbaseinterestrate,jdbcType=DECIMAL}, 
+      #{leasebackbaseinterestrate,jdbcType=DECIMAL}, #{isused,jdbcType=BIT}, #{iscurrent,jdbcType=BIT}, 
+      #{version,jdbcType=INTEGER}, #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, 
+      #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, 
+      #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPVK')
+    </selectKey>
+    insert into tb_product_vehiclekind
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="clientid != null">
+        ClientId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate,
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate,
+      </if>
+      <if test="isused != null">
+        IsUsed,
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    <set>
+      <if test="uniqueid != null">
+        UniqueId = #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="clientid != null">
+        ClientId = #{clientid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        IsDisable = #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="positiverentbaseinterestrate != null">
+        PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="leasebackbaseinterestrate != null">
+        LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null">
+        IsUsed = #{isused,jdbcType=BIT},
+      </if>
+      <if test="iscurrent != null">
+        IsCurrent = #{iscurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_vehiclekind">
+    update tb_product_vehiclekind
+    set UniqueId = #{uniqueid,jdbcType=CHAR},
+      ClientId = #{clientid,jdbcType=CHAR},
+      IsDisable = #{isdisable,jdbcType=BIT},
+      Name = #{name,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=CHAR},
+      PositiveRentBaseInterestRate = #{positiverentbaseinterestrate,jdbcType=DECIMAL},
+      LeasebackBaseInterestRate = #{leasebackbaseinterestrate,jdbcType=DECIMAL},
+      IsUsed = #{isused,jdbcType=BIT},
+      IsCurrent = #{iscurrent,jdbcType=BIT},
+      Version = #{version,jdbcType=INTEGER},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

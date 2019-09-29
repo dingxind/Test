@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lunz.cpfw.web.mappers.tb_product_investormortgageMapper">
+
+  <insert id="insertInvestorMortgage" parameterType="com.lunz.cpfw.web.entities.tb_product_investormortgage" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="BEFORE" >
+      SELECT nextval('PPMT')
+    </selectKey>
+    insert into tb_product_investormortgage (Id, InvestorId, Mortgagee, 
+      Address, LegalRepresentative, ContactNumber, 
+      CreatedAt, CreatedById, UpdatedAt, 
+      UpdatedById, Deleted, DeletedAt, 
+      DeletedById, JsonString)
+    values (#{id,jdbcType=CHAR}, #{investorid,jdbcType=CHAR}, #{mortgagee,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{legalrepresentative,jdbcType=VARCHAR}, #{contactnumber,jdbcType=DECIMAL}, 
+      #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, 
+      #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, 
+      #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR})
+	</insert>
+
+</mapper>

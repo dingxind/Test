@@ -1,0 +1,27 @@
+server:
+  port: 8083
+spring:
+  profiles:
+    active: dev
+---
+person:
+  name: zhangsan
+  age: 18
+  map: {k1: wangwu,k2: 20}
+  list:
+    - lisi
+    - zhaoliu
+  dog:
+    name: 小狗
+    age: 18
+
+---
+server:
+  port: 8084
+spring:
+  profiles: dev
+---
+server:
+  port: 8081
+spring:
+  profiles: prop

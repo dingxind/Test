@@ -1,0 +1,2028 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis-generator.mapper.tb_product_mortgageregionMapper">
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_mortgageregion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="Mortgageid" jdbcType="CHAR" property="mortgageid" />
+    <result column="ProvinceName" jdbcType="VARCHAR" property="provincename" />
+    <result column="ProvinceCode" jdbcType="VARCHAR" property="provincecode" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, InvestorId, Mortgageid, ProvinceName, ProvinceCode, CreatedAt, CreatedById, UpdatedAt, 
+    UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_product_mortgageregion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion (Id, InvestorId, Mortgageid, 
+      ProvinceName, ProvinceCode, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=INTEGER}, #{investorid,jdbcType=CHAR}, #{mortgageid,jdbcType=CHAR}, 
+      #{provincename,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    insert into tb_product_mortgageregion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid,
+      </if>
+      <if test="provincename != null">
+        ProvinceName,
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    <set>
+      <if test="investorid != null">
+        InvestorId = #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="mortgageid != null">
+        Mortgageid = #{mortgageid,jdbcType=CHAR},
+      </if>
+      <if test="provincename != null">
+        ProvinceName = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="provincecode != null">
+        ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_mortgageregion">
+    update tb_product_mortgageregion
+    set InvestorId = #{investorid,jdbcType=CHAR},
+      Mortgageid = #{mortgageid,jdbcType=CHAR},
+      ProvinceName = #{provincename,jdbcType=VARCHAR},
+      ProvinceCode = #{provincecode,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,42 @@
+#属性配置
+environment:
+  open-authorization: true
+
+#开发配置
+spring:
+  datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com/fin_productcenter?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8
+        username: user_fin
+        password: Lunz2017
+#   secruity:
+#     oauth2:
+#       resourceserver:
+#         jwt:
+#           issuer-uri: https://identity-fat.lunz.cn
+#           jwk-set-uri: https://identity-fat.lunz.cn/.well-know/openid-configuration/jwks
+
+# config:
+#   oauth2:
+#     resource.id: cpfw-api
+#     clientID: cpfw-api
+#     clientSecret: KKvpfIg0gnnv4CKY68UBg2u0lqFYrivj
+#     client:
+#       grantType: client_credentials
+#     accessTokenUri: http://identity-fat.lunz.cn/connect/token
+#     userAuthorizationUri: http://identity-fat.lunz.cn/oauth/authorize
+#     resourceURI: http://identity-fat.lunz.cn/oauth/authorize
+
+#swagger是否显示
+swagger.enable : true
+#阿里云oss
+aliyun:
+  oss:
+    access-id:   LTAIwXrc0JBmx5ak
+    access-key:  qwXROcGOHrVMmgkldxhiMPFykqN8Mt
+    bucket:      zmthz
+    endpoint:    oss-cn-hangzhou.aliyuncs.com
+    dir:         CPFW/
+ 
+env:
+  env-value: dev

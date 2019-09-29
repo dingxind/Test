@@ -1,0 +1,25 @@
+#属性配置
+environment:
+  open-authorization: true
+
+#开发配置
+spring:
+  datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com/fin_productcenter?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8
+        username: user_fin
+        password: Lunz2017
+#swagger是否显示
+swagger.enable : true
+#阿里云oss
+aliyun:
+  oss:
+    access-id:   LTAIwXrc0JBmx5ak
+    access-key:  qwXROcGOHrVMmgkldxhiMPFykqN8Mt
+    bucket:      zmthz
+    endpoint:    oss-cn-hangzhou.aliyuncs.com
+    dir:         CPFW/
+
+#环境配置，有用
+env:
+  env-value: pro

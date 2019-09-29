@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "person",
+      "type": "com.xindong.springboottestfor.bean.Person",
+      "sourceType": "com.xindong.springboottestfor.bean.Person"
+    }
+  ],
+  "properties": [
+    {
+      "name": "person.birth",
+      "type": "java.util.Date",
+      "sourceType": "com.xindong.springboottestfor.bean.Person"
+    },
+    {
+      "name": "person.name",
+      "type": "java.lang.String",
+      "sourceType": "com.xindong.springboottestfor.bean.Person"
+    },
+    {
+      "name": "person.password",
+      "type": "java.lang.String",
+      "sourceType": "com.xindong.springboottestfor.bean.Person"
+    }
+  ],
+  "hints": []
+}

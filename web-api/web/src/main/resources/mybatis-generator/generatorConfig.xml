@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="D:\Apache\maven-repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com/fin_productcenter?useSSL=false" userId="user_fin" password="Lunz2017" />
+        <javaModelGenerator targetPackage="mybatis-generator.entity" targetProject="src/main/resources">
+            <property name="trimStrings" value="true" />
+            <!--是否对model添加构造函数-->
+            <property name="constructorBased" value="false" />
+            <!--是否允许子包-->
+            <property name="enableSubPackages" value="true" />
+            <!--建立的model对象是否不可变，也就是生成的model没有setter方法-->
+            <property name="immutable" value="false" />
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="mybatis-generator.xml" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--生成Mapper类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="mybatis-generator.mapper" targetProject="src/main/resources" />
+        <table tableName="helloworld" domainObjectName="helloworld" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="tb_product_investorinfo" domainObjectName="tb_product_investorinfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPIN')" />
+        </table>
+        <table tableName="tb_product_investormortgage" domainObjectName="tb_product_investormortgage" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPMT')" />
+        </table>
+
+        <table tableName="tb_product_mortgageregion" domainObjectName="tb_product_mortgageregion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="tb_product_investorannex" domainObjectName="tb_product_investorannex" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="sys_product_operatinglog" domainObjectName="sys_product_operatinglog" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="tb_product_vehicletype" domainObjectName="tb_product_vehicletype" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="tb_product_vehiclekind" domainObjectName="tb_product_vehiclekind" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPVK')" />
+        </table>
+        
+        <table tableName="tb_product_productgpsfee" domainObjectName="tb_product_productgpsfee" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPPG')" />
+        </table>
+        <table tableName="tb_product_productinfo" domainObjectName="tb_product_productinfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPPI')" />
+        </table>
+        <table tableName="tb_product_productloanfee" domainObjectName="tb_product_productloanfee" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPPL')" />
+        </table>
+        <table tableName="tb_product_productotherfee" domainObjectName="tb_product_productotherfee" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPPO')" />
+        </table>
+        <table tableName="tb_product_productregion" domainObjectName="tb_product_productregion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPPR')" />
+        </table>
+        <table tableName="tb_product_productvehicle" domainObjectName="tb_product_productvehicle" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPPV')" />
+        </table>
+        <table tableName="tb_product_regionrate" domainObjectName="tb_product_regionrate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成自增ID-->
+            <generatedKey column="Id" sqlStatement="SELECT nextval('PPRR')" />
+        </table>
+        <table tableName="view_product_productinfo" domainObjectName="view_product_productinfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="tb_product_allannex" domainObjectName="tb_product_allannex" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+    </context>
+</generatorConfiguration>

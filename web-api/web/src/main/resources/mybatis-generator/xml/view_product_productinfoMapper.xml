@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis-generator.mapper.view_product_productinfoMapper">
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.view_product_productinfo">
+    <result column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="InvestorName" jdbcType="VARCHAR" property="investorname" />
+    <result column="LeaseDirection" jdbcType="SMALLINT" property="leasedirection" />
+    <result column="RepaymentMode" jdbcType="SMALLINT" property="repaymentmode" />
+    <result column="VehicleKindId" jdbcType="CHAR" property="vehiclekindid" />
+    <result column="VehicleKindName" jdbcType="VARCHAR" property="vehiclekindname" />
+    <result column="EffectiveDate" jdbcType="DATE" property="effectivedate" />
+    <result column="InvalidDate" jdbcType="DATE" property="invaliddate" />
+  </resultMap>
+  <insert id="insert" parameterType="mybatis-generator.entity.view_product_productinfo">
+    insert into view_product_productinfo (Id, UniqueId, IsDisable, 
+      Name, InvestorId, InvestorName, 
+      LeaseDirection, RepaymentMode, VehicleKindId, 
+      VehicleKindName, EffectiveDate, InvalidDate
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{isdisable,jdbcType=BIT}, 
+      #{name,jdbcType=VARCHAR}, #{investorid,jdbcType=CHAR}, #{investorname,jdbcType=VARCHAR}, 
+      #{leasedirection,jdbcType=SMALLINT}, #{repaymentmode,jdbcType=SMALLINT}, #{vehiclekindid,jdbcType=CHAR}, 
+      #{vehiclekindname,jdbcType=VARCHAR}, #{effectivedate,jdbcType=DATE}, #{invaliddate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.view_product_productinfo">
+    insert into view_product_productinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="investorname != null">
+        InvestorName,
+      </if>
+      <if test="leasedirection != null">
+        LeaseDirection,
+      </if>
+      <if test="repaymentmode != null">
+        RepaymentMode,
+      </if>
+      <if test="vehiclekindid != null">
+        VehicleKindId,
+      </if>
+      <if test="vehiclekindname != null">
+        VehicleKindName,
+      </if>
+      <if test="effectivedate != null">
+        EffectiveDate,
+      </if>
+      <if test="invaliddate != null">
+        InvalidDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="investorname != null">
+        #{investorname,jdbcType=VARCHAR},
+      </if>
+      <if test="leasedirection != null">
+        #{leasedirection,jdbcType=SMALLINT},
+      </if>
+      <if test="repaymentmode != null">
+        #{repaymentmode,jdbcType=SMALLINT},
+      </if>
+      <if test="vehiclekindid != null">
+        #{vehiclekindid,jdbcType=CHAR},
+      </if>
+      <if test="vehiclekindname != null">
+        #{vehiclekindname,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate != null">
+        #{effectivedate,jdbcType=DATE},
+      </if>
+      <if test="invaliddate != null">
+        #{invaliddate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.view_product_productinfo">
+    <result column="Id" jdbcType="CHAR" property="id" />
+    <result column="UniqueId" jdbcType="CHAR" property="uniqueid" />
+    <result column="IsDisable" jdbcType="BIT" property="isdisable" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="InvestorId" jdbcType="CHAR" property="investorid" />
+    <result column="InvestorName" jdbcType="VARCHAR" property="investorname" />
+    <result column="LeaseDirection" jdbcType="SMALLINT" property="leasedirection" />
+    <result column="RepaymentMode" jdbcType="SMALLINT" property="repaymentmode" />
+    <result column="VehicleKindId" jdbcType="CHAR" property="vehiclekindid" />
+    <result column="VehicleKindName" jdbcType="VARCHAR" property="vehiclekindname" />
+    <result column="EffectiveDate" jdbcType="DATE" property="effectivedate" />
+    <result column="InvalidDate" jdbcType="DATE" property="invaliddate" />
+  </resultMap>
+  <insert id="insert" parameterType="mybatis-generator.entity.view_product_productinfo">
+    insert into view_product_productinfo (Id, UniqueId, IsDisable, 
+      Name, InvestorId, InvestorName, 
+      LeaseDirection, RepaymentMode, VehicleKindId, 
+      VehicleKindName, EffectiveDate, InvalidDate
+      )
+    values (#{id,jdbcType=CHAR}, #{uniqueid,jdbcType=CHAR}, #{isdisable,jdbcType=BIT}, 
+      #{name,jdbcType=VARCHAR}, #{investorid,jdbcType=CHAR}, #{investorname,jdbcType=VARCHAR}, 
+      #{leasedirection,jdbcType=SMALLINT}, #{repaymentmode,jdbcType=SMALLINT}, #{vehiclekindid,jdbcType=CHAR}, 
+      #{vehiclekindname,jdbcType=VARCHAR}, #{effectivedate,jdbcType=DATE}, #{invaliddate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.view_product_productinfo">
+    insert into view_product_productinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="uniqueid != null">
+        UniqueId,
+      </if>
+      <if test="isdisable != null">
+        IsDisable,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="investorid != null">
+        InvestorId,
+      </if>
+      <if test="investorname != null">
+        InvestorName,
+      </if>
+      <if test="leasedirection != null">
+        LeaseDirection,
+      </if>
+      <if test="repaymentmode != null">
+        RepaymentMode,
+      </if>
+      <if test="vehiclekindid != null">
+        VehicleKindId,
+      </if>
+      <if test="vehiclekindname != null">
+        VehicleKindName,
+      </if>
+      <if test="effectivedate != null">
+        EffectiveDate,
+      </if>
+      <if test="invaliddate != null">
+        InvalidDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=CHAR},
+      </if>
+      <if test="isdisable != null">
+        #{isdisable,jdbcType=BIT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="investorid != null">
+        #{investorid,jdbcType=CHAR},
+      </if>
+      <if test="investorname != null">
+        #{investorname,jdbcType=VARCHAR},
+      </if>
+      <if test="leasedirection != null">
+        #{leasedirection,jdbcType=SMALLINT},
+      </if>
+      <if test="repaymentmode != null">
+        #{repaymentmode,jdbcType=SMALLINT},
+      </if>
+      <if test="vehiclekindid != null">
+        #{vehiclekindid,jdbcType=CHAR},
+      </if>
+      <if test="vehiclekindname != null">
+        #{vehiclekindname,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate != null">
+        #{effectivedate,jdbcType=DATE},
+      </if>
+      <if test="invaliddate != null">
+        #{invaliddate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

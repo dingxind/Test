@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis-generator.mapper.tb_product_productgpsfeeMapper">
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_productgpsfee">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="ProductId" jdbcType="CHAR" property="productid" />
+    <result column="IsLeasePeriod" jdbcType="SMALLINT" property="isleaseperiod" />
+    <result column="StartValue" jdbcType="INTEGER" property="startvalue" />
+    <result column="EndValue" jdbcType="INTEGER" property="endvalue" />
+    <result column="CalculationRules" jdbcType="SMALLINT" property="calculationrules" />
+    <result column="RuleName" jdbcType="SMALLINT" property="rulename" />
+    <result column="RuleValue" jdbcType="DECIMAL" property="rulevalue" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, ProductId, IsLeasePeriod, StartValue, EndValue, CalculationRules, RuleName, RuleValue, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee (Id, ProductId, IsLeasePeriod, 
+      StartValue, EndValue, CalculationRules, 
+      RuleName, RuleValue, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=CHAR}, #{productid,jdbcType=CHAR}, #{isleaseperiod,jdbcType=SMALLINT}, 
+      #{startvalue,jdbcType=INTEGER}, #{endvalue,jdbcType=INTEGER}, #{calculationrules,jdbcType=SMALLINT}, 
+      #{rulename,jdbcType=SMALLINT}, #{rulevalue,jdbcType=DECIMAL}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="productid != null">
+        ProductId,
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod,
+      </if>
+      <if test="startvalue != null">
+        StartValue,
+      </if>
+      <if test="endvalue != null">
+        EndValue,
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules,
+      </if>
+      <if test="rulename != null">
+        RuleName,
+      </if>
+      <if test="rulevalue != null">
+        RuleValue,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="productid != null">
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    <set>
+      <if test="productid != null">
+        ProductId = #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        StartValue = #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        EndValue = #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        RuleName = #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    set ProductId = #{productid,jdbcType=CHAR},
+      IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      StartValue = #{startvalue,jdbcType=INTEGER},
+      EndValue = #{endvalue,jdbcType=INTEGER},
+      CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      RuleName = #{rulename,jdbcType=SMALLINT},
+      RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_productgpsfee">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="ProductId" jdbcType="CHAR" property="productid" />
+    <result column="IsLeasePeriod" jdbcType="SMALLINT" property="isleaseperiod" />
+    <result column="StartValue" jdbcType="INTEGER" property="startvalue" />
+    <result column="EndValue" jdbcType="INTEGER" property="endvalue" />
+    <result column="CalculationRules" jdbcType="SMALLINT" property="calculationrules" />
+    <result column="RuleName" jdbcType="SMALLINT" property="rulename" />
+    <result column="RuleValue" jdbcType="DECIMAL" property="rulevalue" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, ProductId, IsLeasePeriod, StartValue, EndValue, CalculationRules, RuleName, RuleValue, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee (Id, ProductId, IsLeasePeriod, 
+      StartValue, EndValue, CalculationRules, 
+      RuleName, RuleValue, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=CHAR}, #{productid,jdbcType=CHAR}, #{isleaseperiod,jdbcType=SMALLINT}, 
+      #{startvalue,jdbcType=INTEGER}, #{endvalue,jdbcType=INTEGER}, #{calculationrules,jdbcType=SMALLINT}, 
+      #{rulename,jdbcType=SMALLINT}, #{rulevalue,jdbcType=DECIMAL}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="productid != null">
+        ProductId,
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod,
+      </if>
+      <if test="startvalue != null">
+        StartValue,
+      </if>
+      <if test="endvalue != null">
+        EndValue,
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules,
+      </if>
+      <if test="rulename != null">
+        RuleName,
+      </if>
+      <if test="rulevalue != null">
+        RuleValue,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="productid != null">
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    <set>
+      <if test="productid != null">
+        ProductId = #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        StartValue = #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        EndValue = #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        RuleName = #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    set ProductId = #{productid,jdbcType=CHAR},
+      IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      StartValue = #{startvalue,jdbcType=INTEGER},
+      EndValue = #{endvalue,jdbcType=INTEGER},
+      CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      RuleName = #{rulename,jdbcType=SMALLINT},
+      RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_productgpsfee">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="ProductId" jdbcType="CHAR" property="productid" />
+    <result column="IsLeasePeriod" jdbcType="SMALLINT" property="isleaseperiod" />
+    <result column="StartValue" jdbcType="INTEGER" property="startvalue" />
+    <result column="EndValue" jdbcType="INTEGER" property="endvalue" />
+    <result column="CalculationRules" jdbcType="SMALLINT" property="calculationrules" />
+    <result column="RuleName" jdbcType="SMALLINT" property="rulename" />
+    <result column="RuleValue" jdbcType="DECIMAL" property="rulevalue" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, ProductId, IsLeasePeriod, StartValue, EndValue, CalculationRules, RuleName, RuleValue, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee (Id, ProductId, IsLeasePeriod, 
+      StartValue, EndValue, CalculationRules, 
+      RuleName, RuleValue, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=CHAR}, #{productid,jdbcType=CHAR}, #{isleaseperiod,jdbcType=SMALLINT}, 
+      #{startvalue,jdbcType=INTEGER}, #{endvalue,jdbcType=INTEGER}, #{calculationrules,jdbcType=SMALLINT}, 
+      #{rulename,jdbcType=SMALLINT}, #{rulevalue,jdbcType=DECIMAL}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="productid != null">
+        ProductId,
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod,
+      </if>
+      <if test="startvalue != null">
+        StartValue,
+      </if>
+      <if test="endvalue != null">
+        EndValue,
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules,
+      </if>
+      <if test="rulename != null">
+        RuleName,
+      </if>
+      <if test="rulevalue != null">
+        RuleValue,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="productid != null">
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    <set>
+      <if test="productid != null">
+        ProductId = #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        StartValue = #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        EndValue = #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        RuleName = #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    set ProductId = #{productid,jdbcType=CHAR},
+      IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      StartValue = #{startvalue,jdbcType=INTEGER},
+      EndValue = #{endvalue,jdbcType=INTEGER},
+      CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      RuleName = #{rulename,jdbcType=SMALLINT},
+      RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_productgpsfee">
+    <id column="Id" jdbcType="CHAR" property="id" />
+    <result column="ProductId" jdbcType="CHAR" property="productid" />
+    <result column="IsLeasePeriod" jdbcType="SMALLINT" property="isleaseperiod" />
+    <result column="StartValue" jdbcType="INTEGER" property="startvalue" />
+    <result column="EndValue" jdbcType="INTEGER" property="endvalue" />
+    <result column="CalculationRules" jdbcType="SMALLINT" property="calculationrules" />
+    <result column="RuleName" jdbcType="SMALLINT" property="rulename" />
+    <result column="RuleValue" jdbcType="DECIMAL" property="rulevalue" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, ProductId, IsLeasePeriod, StartValue, EndValue, CalculationRules, RuleName, RuleValue, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_product_productgpsfee
+    where Id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee (Id, ProductId, IsLeasePeriod, 
+      StartValue, EndValue, CalculationRules, 
+      RuleName, RuleValue, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=CHAR}, #{productid,jdbcType=CHAR}, #{isleaseperiod,jdbcType=SMALLINT}, 
+      #{startvalue,jdbcType=INTEGER}, #{endvalue,jdbcType=INTEGER}, #{calculationrules,jdbcType=SMALLINT}, 
+      #{rulename,jdbcType=SMALLINT}, #{rulevalue,jdbcType=DECIMAL}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+      SELECT nextval('PPPG')
+    </selectKey>
+    insert into tb_product_productgpsfee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      Id,
+      <if test="productid != null">
+        ProductId,
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod,
+      </if>
+      <if test="startvalue != null">
+        StartValue,
+      </if>
+      <if test="endvalue != null">
+        EndValue,
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules,
+      </if>
+      <if test="rulename != null">
+        RuleName,
+      </if>
+      <if test="rulevalue != null">
+        RuleValue,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=CHAR},
+      <if test="productid != null">
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    <set>
+      <if test="productid != null">
+        ProductId = #{productid,jdbcType=CHAR},
+      </if>
+      <if test="isleaseperiod != null">
+        IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      </if>
+      <if test="startvalue != null">
+        StartValue = #{startvalue,jdbcType=INTEGER},
+      </if>
+      <if test="endvalue != null">
+        EndValue = #{endvalue,jdbcType=INTEGER},
+      </if>
+      <if test="calculationrules != null">
+        CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      </if>
+      <if test="rulename != null">
+        RuleName = #{rulename,jdbcType=SMALLINT},
+      </if>
+      <if test="rulevalue != null">
+        RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_productgpsfee">
+    update tb_product_productgpsfee
+    set ProductId = #{productid,jdbcType=CHAR},
+      IsLeasePeriod = #{isleaseperiod,jdbcType=SMALLINT},
+      StartValue = #{startvalue,jdbcType=INTEGER},
+      EndValue = #{endvalue,jdbcType=INTEGER},
+      CalculationRules = #{calculationrules,jdbcType=SMALLINT},
+      RuleName = #{rulename,jdbcType=SMALLINT},
+      RuleValue = #{rulevalue,jdbcType=DECIMAL},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

@@ -1,0 +1,2482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis-generator.mapper.sys_product_operatinglogMapper">
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="BusinessType" jdbcType="SMALLINT" property="businesstype" />
+    <result column="OperateId" jdbcType="CHAR" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis-generator.entity.sys_product_operatinglog">
+    <result column="Remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, BusinessType, OperateId, Operator, Operating, OtherExplain, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <sql id="Blob_Column_List">
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, BusinessType, OperateId, 
+      Operator, Operating, OtherExplain, 
+      CreatedAt, CreatedById, UpdatedAt, 
+      UpdatedById, Deleted, DeletedAt, 
+      DeletedById, JsonString, Remark
+      )
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{businesstype,jdbcType=SMALLINT}, #{operateid,jdbcType=CHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{operating,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, 
+      #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, 
+      #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, 
+      #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}, #{remark,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="businesstype != null">
+        BusinessType,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="businesstype != null">
+        BusinessType = #{businesstype,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      BusinessType = #{businesstype,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR},
+      Remark = #{remark,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      BusinessType = #{businesstype,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="BusinessType" jdbcType="SMALLINT" property="businesstype" />
+    <result column="OperateId" jdbcType="CHAR" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis-generator.entity.sys_product_operatinglog">
+    <result column="Remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, BusinessType, OperateId, Operator, Operating, OtherExplain, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <sql id="Blob_Column_List">
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, BusinessType, OperateId, 
+      Operator, Operating, OtherExplain, 
+      CreatedAt, CreatedById, UpdatedAt, 
+      UpdatedById, Deleted, DeletedAt, 
+      DeletedById, JsonString, Remark
+      )
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{businesstype,jdbcType=SMALLINT}, #{operateid,jdbcType=CHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{operating,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, 
+      #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, 
+      #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, 
+      #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR}, #{remark,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="businesstype != null">
+        BusinessType,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="businesstype != null">
+        BusinessType = #{businesstype,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      BusinessType = #{businesstype,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR},
+      Remark = #{remark,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      BusinessType = #{businesstype,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="CHAR" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis-generator.entity.sys_product_operatinglog">
+    <result column="Remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, OtherExplain, CreatedAt, 
+    CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <sql id="Blob_Column_List">
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, OtherExplain, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString, Remark)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=CHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR},
+      Remark = #{remark,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="CHAR" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis-generator.entity.sys_product_operatinglog">
+    <result column="Remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, OtherExplain, CreatedAt, 
+    CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <sql id="Blob_Column_List">
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, OtherExplain, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString, Remark)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=CHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR},
+      Remark = #{remark,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="CHAR" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis-generator.entity.sys_product_operatinglog">
+    <result column="Remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, OtherExplain, CreatedAt, 
+    CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <sql id="Blob_Column_List">
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, OtherExplain, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString, Remark)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=CHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR},
+      Remark = #{remark,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="CHAR" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis-generator.entity.sys_product_operatinglog">
+    <result column="Remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, OtherExplain, CreatedAt, 
+    CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <sql id="Blob_Column_List">
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, OtherExplain, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString, Remark)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=CHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR},
+      Remark = #{remark,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="CHAR" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, Remark, OtherExplain, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, Remark, OtherExplain, 
+      CreatedAt, CreatedById, UpdatedAt, 
+      UpdatedById, Deleted, DeletedAt, 
+      DeletedById, JsonString)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=CHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, 
+      #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, 
+      #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, 
+      #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=CHAR},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="BIGINT" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, Remark, OtherExplain, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, Remark, OtherExplain, 
+      CreatedAt, CreatedById, UpdatedAt, 
+      UpdatedById, Deleted, DeletedAt, 
+      DeletedById, JsonString)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=BIGINT}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{otherexplain,jdbcType=VARCHAR}, 
+      #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, 
+      #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, 
+      #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=BIGINT},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="BIGINT" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="Remark" jdbcType="CHAR" property="remark" />
+    <result column="OtherExplain" jdbcType="VARCHAR" property="otherexplain" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, Remark, OtherExplain, 
+    CreatedAt, CreatedById, UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, 
+    JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, Remark, OtherExplain, 
+      CreatedAt, CreatedById, UpdatedAt, 
+      UpdatedById, Deleted, DeletedAt, 
+      DeletedById, JsonString)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=BIGINT}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{remark,jdbcType=CHAR}, #{otherexplain,jdbcType=VARCHAR}, 
+      #{createdat,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, 
+      #{updatedbyid,jdbcType=CHAR}, #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, 
+      #{deletedbyid,jdbcType=CHAR}, #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=CHAR},
+      </if>
+      <if test="otherexplain != null">
+        #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=CHAR},
+      </if>
+      <if test="otherexplain != null">
+        OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=BIGINT},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=CHAR},
+      OtherExplain = #{otherexplain,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.sys_product_operatinglog">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="DataId" jdbcType="VARCHAR" property="dataid" />
+    <result column="TableName" jdbcType="VARCHAR" property="tablename" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="OperateId" jdbcType="BIGINT" property="operateid" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="Operating" jdbcType="VARCHAR" property="operating" />
+    <result column="Remark" jdbcType="CHAR" property="remark" />
+    <result column="CreatedAt" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="CreatedById" jdbcType="CHAR" property="createdbyid" />
+    <result column="UpdatedAt" jdbcType="TIMESTAMP" property="updatedat" />
+    <result column="UpdatedById" jdbcType="CHAR" property="updatedbyid" />
+    <result column="Deleted" jdbcType="BIT" property="deleted" />
+    <result column="DeletedAt" jdbcType="TIMESTAMP" property="deletedat" />
+    <result column="DeletedById" jdbcType="CHAR" property="deletedbyid" />
+    <result column="JsonString" jdbcType="CHAR" property="jsonstring" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, DataId, TableName, Type, OperateId, Operator, Operating, Remark, CreatedAt, CreatedById, 
+    UpdatedAt, UpdatedById, Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_product_operatinglog
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog (Id, DataId, TableName, 
+      Type, OperateId, Operator, 
+      Operating, Remark, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=BIGINT}, #{dataid,jdbcType=VARCHAR}, #{tablename,jdbcType=VARCHAR}, 
+      #{type,jdbcType=SMALLINT}, #{operateid,jdbcType=BIGINT}, #{operator,jdbcType=VARCHAR}, 
+      #{operating,jdbcType=VARCHAR}, #{remark,jdbcType=CHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    insert into sys_product_operatinglog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="tablename != null">
+        TableName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="operateid != null">
+        OperateId,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="operating != null">
+        Operating,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="createdat != null">
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById,
+      </if>
+      <if test="deleted != null">
+        Deleted,
+      </if>
+      <if test="deletedat != null">
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById,
+      </if>
+      <if test="jsonstring != null">
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dataid != null">
+        #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        #{operateid,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=CHAR},
+      </if>
+      <if test="createdat != null">
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    <set>
+      <if test="dataid != null">
+        DataId = #{dataid,jdbcType=VARCHAR},
+      </if>
+      <if test="tablename != null">
+        TableName = #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="operateid != null">
+        OperateId = #{operateid,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operating != null">
+        Operating = #{operating,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=CHAR},
+      </if>
+      <if test="createdat != null">
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null">
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null">
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null">
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null">
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null">
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null">
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.sys_product_operatinglog">
+    update sys_product_operatinglog
+    set DataId = #{dataid,jdbcType=VARCHAR},
+      TableName = #{tablename,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=SMALLINT},
+      OperateId = #{operateid,jdbcType=BIGINT},
+      Operator = #{operator,jdbcType=VARCHAR},
+      Operating = #{operating,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=CHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

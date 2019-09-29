@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatis-generator.mapper.tb_product_allannexMapper" >
+  <resultMap id="BaseResultMap" type="mybatis-generator.entity.tb_product_allannex" >
+    <id column="Id" property="id" jdbcType="BIGINT" />
+    <result column="BusinessId" property="businessid" jdbcType="CHAR" />
+    <result column="Type" property="type" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="Url" property="url" jdbcType="VARCHAR" />
+    <result column="CreatedAt" property="createdat" jdbcType="TIMESTAMP" />
+    <result column="CreatedById" property="createdbyid" jdbcType="CHAR" />
+    <result column="UpdatedAt" property="updatedat" jdbcType="TIMESTAMP" />
+    <result column="UpdatedById" property="updatedbyid" jdbcType="CHAR" />
+    <result column="Deleted" property="deleted" jdbcType="BIT" />
+    <result column="DeletedAt" property="deletedat" jdbcType="TIMESTAMP" />
+    <result column="DeletedById" property="deletedbyid" jdbcType="CHAR" />
+    <result column="JsonString" property="jsonstring" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, BusinessId, Type, Name, Url, CreatedAt, CreatedById, UpdatedAt, UpdatedById, 
+    Deleted, DeletedAt, DeletedById, JsonString
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_product_allannex
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_product_allannex
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="mybatis-generator.entity.tb_product_allannex" >
+    insert into tb_product_allannex (Id, BusinessId, Type, 
+      Name, Url, CreatedAt, 
+      CreatedById, UpdatedAt, UpdatedById, 
+      Deleted, DeletedAt, DeletedById, 
+      JsonString)
+    values (#{id,jdbcType=BIGINT}, #{businessid,jdbcType=CHAR}, #{type,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{createdbyid,jdbcType=CHAR}, #{updatedat,jdbcType=TIMESTAMP}, #{updatedbyid,jdbcType=CHAR}, 
+      #{deleted,jdbcType=BIT}, #{deletedat,jdbcType=TIMESTAMP}, #{deletedbyid,jdbcType=CHAR}, 
+      #{jsonstring,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis-generator.entity.tb_product_allannex" >
+    insert into tb_product_allannex
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="businessid != null" >
+        BusinessId,
+      </if>
+      <if test="type != null" >
+        Type,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="url != null" >
+        Url,
+      </if>
+      <if test="createdat != null" >
+        CreatedAt,
+      </if>
+      <if test="createdbyid != null" >
+        CreatedById,
+      </if>
+      <if test="updatedat != null" >
+        UpdatedAt,
+      </if>
+      <if test="updatedbyid != null" >
+        UpdatedById,
+      </if>
+      <if test="deleted != null" >
+        Deleted,
+      </if>
+      <if test="deletedat != null" >
+        DeletedAt,
+      </if>
+      <if test="deletedbyid != null" >
+        DeletedById,
+      </if>
+      <if test="jsonstring != null" >
+        JsonString,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="businessid != null" >
+        #{businessid,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null" >
+        #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null" >
+        #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null" >
+        #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null" >
+        #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null" >
+        #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null" >
+        #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null" >
+        #{jsonstring,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis-generator.entity.tb_product_allannex" >
+    update tb_product_allannex
+    <set >
+      <if test="businessid != null" >
+        BusinessId = #{businessid,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        Url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="createdat != null" >
+        CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null" >
+        CreatedById = #{createdbyid,jdbcType=CHAR},
+      </if>
+      <if test="updatedat != null" >
+        UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedbyid != null" >
+        UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      </if>
+      <if test="deleted != null" >
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="deletedat != null" >
+        DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedbyid != null" >
+        DeletedById = #{deletedbyid,jdbcType=CHAR},
+      </if>
+      <if test="jsonstring != null" >
+        JsonString = #{jsonstring,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis-generator.entity.tb_product_allannex" >
+    update tb_product_allannex
+    set BusinessId = #{businessid,jdbcType=CHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Url = #{url,jdbcType=VARCHAR},
+      CreatedAt = #{createdat,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=CHAR},
+      UpdatedAt = #{updatedat,jdbcType=TIMESTAMP},
+      UpdatedById = #{updatedbyid,jdbcType=CHAR},
+      Deleted = #{deleted,jdbcType=BIT},
+      DeletedAt = #{deletedat,jdbcType=TIMESTAMP},
+      DeletedById = #{deletedbyid,jdbcType=CHAR},
+      JsonString = #{jsonstring,jdbcType=CHAR}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
