@@ -37,7 +37,7 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
     CommonMapper commonMapper;
 
     /**
-     * 分页查询
+     * 分页查询全部信息
      * @param pagingOptions
      * @return
      */
