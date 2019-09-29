@@ -1,13 +1,11 @@
 package com.lunz.cpfw.web.services;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.lunz.cpfw.core.interaction.PagingOptions;
 import com.lunz.cpfw.core.interaction.Query;
 import com.lunz.cpfw.core.service.ServiceBase;
 import com.lunz.cpfw.core.service.WebApiResult;
-import com.lunz.cpfw.web.entities.Vehicle;
 import com.lunz.cpfw.web.entities.tb_product_vehiclekind;
 import com.lunz.cpfw.web.entities.tb_product_vehicletype;
 import com.lunz.cpfw.web.interfaces.Itb_product_vehiclekindService;
@@ -16,13 +14,10 @@ import com.lunz.cpfw.web.mappers.tb_product_vehiclekindMapper;
 import com.lunz.cpfw.web.mappers.tb_product_vehicletypeMapper;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Future;
 
