@@ -9,12 +9,12 @@ import com.lunz.cpfw.web.entities.tb_product_vehicletype;
 import com.lunz.cpfw.web.interfaces.Itb_product_vehiclekindService;
 import com.lunz.cpfw.web.interfaces.Itb_product_vehicletypeService;
 import com.lunz.cpfw.web.mappers.tb_product_vehicletypeMapper;
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class tb_product_vehicletypeService extends ServiceBase<tb_product_vehicletypeMapper, tb_product_vehicletype>
@@ -44,7 +44,30 @@ public class tb_product_vehicletypeService extends ServiceBase<tb_product_vehicl
             }
         }
         if (list.contains(id)) {
-            result = WebApiResult.error("id正在被使用!!");
+            ArrayList<String> stringList = new ArrayList<>();
+            StringBuffer buffer = new StringBuffer();
+            String join = null;
+            HashMap<String, List> map = new HashMap<>();
+
+            for (tb_product_vehiclekind vehiclekind : vehiclekindList) {
+                List<String> listType = JSON.parseArray(vehiclekind.getType(), String.class);
+                map.put(vehiclekind.getId(), listType);
+            }
+            Iterator<Map.Entry<String, List>> iterator = map.entrySet().iterator();
+            int i = 0;
+            while (iterator.hasNext()) {
+                Map.Entry<String, List> next = iterator.next();
+                List nextValue = next.getValue();
+                if(nextValue != null) {
+                    if(nextValue.contains(id)){
+                        stringList.add(next.getKey());
+                        join = StringUtil.join(Arrays.asList(stringList.toArray()), ",");
+                    }
+                }
+
+            }
+            result = WebApiResult.error(join);
+
         } else {
 
             tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(id);
