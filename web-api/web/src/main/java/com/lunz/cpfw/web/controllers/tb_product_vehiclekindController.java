@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.lunz.cpfw.core.interaction.PagingOptions;
 import com.lunz.cpfw.core.service.WebApiResult;
+import com.lunz.cpfw.web.entities.Type;
 import com.lunz.cpfw.web.entities.Vehicle;
 import com.lunz.cpfw.web.entities.tb_product_vehiclekind;
 import com.lunz.cpfw.web.entities.tb_product_vehicletype;
@@ -103,5 +104,31 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
 
         List<?> list = vehiclekindService.likePagingResult(name);
         return WebApiResult.ok(list);
+    }
+    /**
+     * 停用
+     */
+    @ApiOperation("停用")
+    @GetMapping("/stop")
+    public WebApiResult stopVehiclekind(){
+        return  WebApiResult.ok();
+    }
+
+    /**
+     * 车辆类别维护
+     */
+    @ApiOperation("车辆类别维护")
+    @GetMapping("/selectToType")
+    public WebApiResult selectToType(){
+        List<tb_product_vehicletype> vehicletypeList = vehiclektypeService.selectList(null);
+        ArrayList<Type> types = new ArrayList<>();
+        for (tb_product_vehicletype vehicletype : vehicletypeList){
+            Type type = new Type();
+            type.setId(vehicletype.getId());
+            type.setName(vehicletype.getName());
+            type.setCode(vehicletype.getCode());
+            types.add(type);
+        }
+        return  WebApiResult.ok(types);
     }
 }
