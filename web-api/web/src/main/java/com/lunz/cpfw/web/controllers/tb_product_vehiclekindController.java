@@ -42,9 +42,6 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         return result.get();
     }
 
-
-
-
     @ApiOperation("新建页面")
     @GetMapping("/saveToPage")
     public WebApiResult saveToPage() {
@@ -61,13 +58,38 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
 
     }
 
-    /**
-     * 保存
-     *
-     * @param
-     * @return
-     */
-    @ApiOperation("新建保存")
+//    /**
+//     * 新建保存
+//     *
+//     * @param
+//     * @return
+//     */
+//    @ApiOperation("新建保存")
+//    @PostMapping("/insert")
+//    public WebApiResult insert(@RequestBody Vehicle vehicle) {
+//        tb_product_vehiclekind vehiclekind = new tb_product_vehiclekind();
+//        vehiclekind.setName(vehicle.getName());
+//        vehiclekind.setPositiverentbaseinterestrate(vehicle.getPositiverentbaseinterestrate());
+//        vehiclekind.setLeasebackbaseinterestrate(vehicle.getLeasebackbaseinterestrate());
+//        vehiclekind.setType(JSON.toJSONString(vehicle.getList()));
+//        vehiclekindService.addVehiclekind(vehiclekind);
+//        return WebApiResult.ok();
+//    }
+
+//    @ApiOperation("修改保存")
+//    @PostMapping("/edit")
+//    public WebApiResult edit(@RequestBody Vehicle vehicle) {
+//        tb_product_vehiclekind vehiclekind = new tb_product_vehiclekind();
+//        vehiclekind.setId(vehicle.getId());
+//        vehiclekind.setName(vehicle.getName());
+//        vehiclekind.setPositiverentbaseinterestrate(vehicle.getPositiverentbaseinterestrate());
+//        vehiclekind.setLeasebackbaseinterestrate(vehicle.getLeasebackbaseinterestrate());
+//        vehiclekind.setType(JSON.toJSONString(vehicle.getList()));
+//        vehiclekindService.updateVehiclekind(vehiclekind);
+//        return WebApiResult.ok();
+//    }
+
+    @ApiOperation("保存")
     @PostMapping("/save")
     public WebApiResult save(@RequestBody Vehicle vehicle) {
         tb_product_vehiclekind vehiclekind = new tb_product_vehiclekind();
@@ -75,8 +97,16 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         vehiclekind.setPositiverentbaseinterestrate(vehicle.getPositiverentbaseinterestrate());
         vehiclekind.setLeasebackbaseinterestrate(vehicle.getLeasebackbaseinterestrate());
         vehiclekind.setType(JSON.toJSONString(vehicle.getList()));
-        vehiclekindService.addVehiclekind(vehiclekind);
-        return WebApiResult.ok();
+        if (vehicle.getId() != null) {
+            //修改
+            vehiclekind.setId(vehicle.getId());
+            vehiclekindService.updateVehiclekind(vehiclekind);
+            return WebApiResult.ok();
+        } else {
+            //新建
+            vehiclekindService.addVehiclekind(vehiclekind);
+            return WebApiResult.ok();
+        }
     }
 
     @ApiOperation("修改根据id查询")
@@ -95,19 +125,5 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         return WebApiResult.ok(vehicle);
 
     }
-
-    @ApiOperation("修改保存")
-    @PostMapping("/edit")
-    public WebApiResult edit(@RequestBody Vehicle vehicle) {
-        tb_product_vehiclekind vehiclekind = new tb_product_vehiclekind();
-        vehiclekind.setId(vehicle.getId());
-        vehiclekind.setName(vehicle.getName());
-        vehiclekind.setPositiverentbaseinterestrate(vehicle.getPositiverentbaseinterestrate());
-        vehiclekind.setLeasebackbaseinterestrate(vehicle.getLeasebackbaseinterestrate());
-        vehiclekind.setType(JSON.toJSONString(vehicle.getList()));
-        vehiclekindService.updateVehiclekind(vehiclekind);
-        return WebApiResult.ok();
-    }
-
 
 }
