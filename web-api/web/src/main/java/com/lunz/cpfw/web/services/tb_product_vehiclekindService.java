@@ -16,6 +16,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,8 +111,9 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
             if (jsonArray != null) {
                 for (String id : jsonArray) {
                     tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(id);
-
-                    arrayList.add(vehicletype.getName());
+                    if(CollectionUtils.isEmpty(arrayList)) {
+                        arrayList.add(vehicletype.getName());
+                    }
                 }
                 String join = StringUtils.join(arrayList.toArray(), ",");
                 vehiclekind.setType(join);

@@ -105,14 +105,7 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         List<?> list = vehiclekindService.likePagingResult(name);
         return WebApiResult.ok(list);
     }
-    /**
-     * 停用
-     */
-    @ApiOperation("停用")
-    @GetMapping("/stop")
-    public WebApiResult stopVehiclekind(){
-        return  WebApiResult.ok();
-    }
+
 
     /**
      * 车辆类别维护
@@ -130,5 +123,14 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
             types.add(type);
         }
         return  WebApiResult.ok(types);
+    }
+
+    /**
+     * 停用
+     */
+    @ApiOperation("停用")
+    @GetMapping("/stop")
+    public WebApiResult stopVehiclekind(){
+        return  WebApiResult.ok();
     }
 }
