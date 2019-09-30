@@ -5,6 +5,7 @@ import com.lunz.cpfw.core.interaction.PagingOptions;
 import com.lunz.cpfw.core.service.WebApiResult;
 import com.lunz.cpfw.web.entities.tb_product_vehiclekind;
 
+import java.util.List;
 import java.util.concurrent.Future;
 
 public interface Itb_product_vehiclekindService extends IService<tb_product_vehiclekind> {
@@ -28,4 +29,6 @@ public interface Itb_product_vehiclekindService extends IService<tb_product_vehi
      * @return
      */
     Integer updateVehiclekind(tb_product_vehiclekind vehiclekind);
+
+   List<?> likePagingResult(String name);
 }

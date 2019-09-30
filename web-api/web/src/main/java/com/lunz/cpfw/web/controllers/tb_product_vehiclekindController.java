@@ -35,9 +35,7 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
     @ApiOperation("分页查询所有")
     @PostMapping("/findByPage")
     public WebApiResult findByPage(@RequestBody PagingOptions pagingOptions) throws Exception {
-//        PagingOptions pageOptions = new PagingOptions();
-//        pageOptions.setPageIndex(pageIndex);
-//        pageOptions.setPageSize(pageSize);
+
         Future<WebApiResult> result = vehiclekindService.queryPagingResult(pagingOptions);
         return result.get();
     }
@@ -57,37 +55,6 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         return WebApiResult.ok(list);
 
     }
-
-//    /**
-//     * 新建保存
-//     *
-//     * @param
-//     * @return
-//     */
-//    @ApiOperation("新建保存")
-//    @PostMapping("/insert")
-//    public WebApiResult insert(@RequestBody Vehicle vehicle) {
-//        tb_product_vehiclekind vehiclekind = new tb_product_vehiclekind();
-//        vehiclekind.setName(vehicle.getName());
-//        vehiclekind.setPositiverentbaseinterestrate(vehicle.getPositiverentbaseinterestrate());
-//        vehiclekind.setLeasebackbaseinterestrate(vehicle.getLeasebackbaseinterestrate());
-//        vehiclekind.setType(JSON.toJSONString(vehicle.getList()));
-//        vehiclekindService.addVehiclekind(vehiclekind);
-//        return WebApiResult.ok();
-//    }
-
-//    @ApiOperation("修改保存")
-//    @PostMapping("/edit")
-//    public WebApiResult edit(@RequestBody Vehicle vehicle) {
-//        tb_product_vehiclekind vehiclekind = new tb_product_vehiclekind();
-//        vehiclekind.setId(vehicle.getId());
-//        vehiclekind.setName(vehicle.getName());
-//        vehiclekind.setPositiverentbaseinterestrate(vehicle.getPositiverentbaseinterestrate());
-//        vehiclekind.setLeasebackbaseinterestrate(vehicle.getLeasebackbaseinterestrate());
-//        vehiclekind.setType(JSON.toJSONString(vehicle.getList()));
-//        vehiclekindService.updateVehiclekind(vehiclekind);
-//        return WebApiResult.ok();
-//    }
 
     @ApiOperation("保存")
     @PostMapping("/save")
@@ -126,4 +93,15 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
 
     }
 
+    /**
+     * 根据名称模糊查询
+     */
+
+    @ApiOperation("模糊查询")
+    @PostMapping("/findByLike")
+    public WebApiResult findByPageAndLike(@RequestParam String name) throws Exception {
+
+        List<?> list = vehiclekindService.likePagingResult(name);
+        return WebApiResult.ok(list);
+    }
 }
