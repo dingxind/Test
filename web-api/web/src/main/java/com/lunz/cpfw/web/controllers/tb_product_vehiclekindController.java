@@ -35,6 +35,7 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
      */
     @ApiOperation("分页查询所有")
     @PostMapping("/findByPage")
+
     public WebApiResult findByPage(@RequestBody PagingOptions pagingOptions) throws Exception {
 
         Future<WebApiResult> result = vehiclekindService.queryPagingResult(pagingOptions);
@@ -106,31 +107,42 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         return WebApiResult.ok(list);
     }
 
-
     /**
      * 车辆类别维护
      */
     @ApiOperation("车辆类别维护")
     @GetMapping("/selectToType")
-    public WebApiResult selectToType(){
+    public WebApiResult selectToType() {
         List<tb_product_vehicletype> vehicletypeList = vehiclektypeService.selectList(null);
         ArrayList<Type> types = new ArrayList<>();
-        for (tb_product_vehicletype vehicletype : vehicletypeList){
+        for (tb_product_vehicletype vehicletype : vehicletypeList) {
             Type type = new Type();
             type.setId(vehicletype.getId());
             type.setName(vehicletype.getName());
             type.setCode(vehicletype.getCode());
             types.add(type);
         }
-        return  WebApiResult.ok(types);
+        return WebApiResult.ok(types);
     }
 
     /**
      * 停用
      */
     @ApiOperation("停用")
-    @GetMapping("/stop")
-    public WebApiResult stopVehiclekind(){
-        return  WebApiResult.ok();
+    @GetMapping("/stop/{id}")
+    public WebApiResult stopVehiclekind(@PathVariable String id) {
+        WebApiResult result = vehiclekindService.stopVehicle(id);
+        return result;
     }
+
+    /**
+     * 启用
+     */
+    @ApiOperation("启用")
+    @GetMapping("/start/{id}") //kind的id;
+    public WebApiResult startVehiclekind(@PathVariable String id) {
+        WebApiResult result = vehiclekindService.startVehicle(id);
+        return result;
+    }
+
 }

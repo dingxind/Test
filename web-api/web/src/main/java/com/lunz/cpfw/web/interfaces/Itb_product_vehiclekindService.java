@@ -11,6 +11,7 @@ import java.util.concurrent.Future;
 public interface Itb_product_vehiclekindService extends IService<tb_product_vehiclekind> {
     /**
      * 查询
+     *
      * @param pagingOptions
      * @return
      */
@@ -18,6 +19,7 @@ public interface Itb_product_vehiclekindService extends IService<tb_product_vehi
 
     /**
      * 添加
+     *
      * @param vehiclekind
      * @return
      */
@@ -25,10 +27,30 @@ public interface Itb_product_vehiclekindService extends IService<tb_product_vehi
 
     /**
      * 修改
+     *
      * @param vehiclekind
      * @return
      */
     Integer updateVehiclekind(tb_product_vehiclekind vehiclekind);
 
-   List<?> likePagingResult(String name);
+    /**
+     * 模糊查询
+     * @param name
+     * @return
+     */
+    List<?> likePagingResult(String name);
+
+    /**
+     * 启用
+     * @param id
+     * @return
+     */
+    WebApiResult startVehicle(String id);
+
+    /**
+     * 停用
+     * @param id
+     * @return
+     */
+    WebApiResult stopVehicle(String id);
 }

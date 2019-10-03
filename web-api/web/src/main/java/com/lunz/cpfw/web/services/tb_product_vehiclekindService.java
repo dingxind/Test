@@ -97,6 +97,7 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
 
     /**
      * 模糊查询
+     *
      * @param name
      * @return
      */
@@ -111,7 +112,7 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
             if (jsonArray != null) {
                 for (String id : jsonArray) {
                     tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(id);
-                    if(CollectionUtils.isEmpty(arrayList)) {
+                    if (CollectionUtils.isEmpty(arrayList)) {
                         arrayList.add(vehicletype.getName());
                     }
                 }
@@ -122,4 +123,70 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
 
         return selectList;
     }
+
+    /**
+     * 启用
+     */
+    public WebApiResult startVehicle(String id) {
+        WebApiResult result = null;
+        tb_product_vehiclekind vehiclekind = mapper.selectById(id);
+        List<String> stringList = JSON.parseArray(vehiclekind.getType(), String.class);
+        int i = 0; // 停用的循环的次数 ,若该次数等于type中类别的个数，则证明全都是停用的，否则就没有停用。
+        for (String str : stringList) {
+            tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(str);
+            if (vehicletype.getIsdisable() == true) {
+                i++;
+            }
+        }
+//        System.out.println(i);
+        if (i == stringList.size()) {
+            vehiclekind.setIsdisable(false);
+            vehiclekind.setJsonstring(null);
+            vehiclekind.setJsonstring(JSON.toJSONString(vehiclekind));
+            EntityWrapper<tb_product_vehiclekind> wrapper = new EntityWrapper<>();
+            wrapper.eq("id", id);
+            mapper.update(vehiclekind, wrapper);
+            result = WebApiResult.ok();
+        } else {
+            result = WebApiResult.error("存在类别未禁用！！");
+        }
+
+        return result;
+    }
+
+    /**
+     * 停用
+     * @param id
+     * @return
+     */
+    public WebApiResult stopVehicle(String id) {
+        WebApiResult result = null;
+        tb_product_vehiclekind vehiclekind = mapper.selectById(id);
+        List<String> stringList = JSON.parseArray(vehiclekind.getType(), String.class);
+        int i = 0 ;
+        if(CollectionUtils.isEmpty(stringList)){
+        for (String str : stringList) {
+            tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(str);
+            if (vehicletype.getIsdisable() == false) {
+                result = WebApiResult.error("还有类别在使用");
+            }else {
+                i++;
+            }
+
+        }
+        }
+        if (i == stringList.size()) {
+            vehiclekind.setIsdisable(true);
+            vehiclekind.setJsonstring(null);
+            vehiclekind.setJsonstring(JSON.toJSONString(vehiclekind));
+            EntityWrapper<tb_product_vehiclekind> wrapper = new EntityWrapper<>();
+            wrapper.eq("id", id);
+            mapper.update(vehiclekind, wrapper);
+            result = WebApiResult.ok();
+        }else{
+            result = WebApiResult.error("还有类别在使用");
+        }
+        return result;
+    }
+
 }
