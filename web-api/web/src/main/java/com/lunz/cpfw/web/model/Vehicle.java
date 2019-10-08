@@ -1,4 +1,4 @@
-package com.lunz.cpfw.web.entities;
+package com.lunz.cpfw.web.model;
 
 import java.math.BigDecimal;
 import java.util.List;

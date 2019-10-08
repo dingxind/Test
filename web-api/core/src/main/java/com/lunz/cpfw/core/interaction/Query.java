@@ -136,7 +136,7 @@ public class Query<T> extends LinkedHashMap<String, Object> {
             }
         }
 
-        // Build Order
+        // Build Order 
         List<PagingSort> sorts = pagingOptions.getSorts();
         if (sorts != null && !sorts.isEmpty()) {
             for (PagingSort sort : pagingOptions.getSorts()) {
