@@ -1,33 +1,24 @@
 package com.lunz.cpfw.web.controllers;
 
-import java.util.concurrent.Future;
-
+import com.lunz.cpfw.core.interaction.PagingOptions;
+import com.lunz.cpfw.core.service.WebApiResult;
 import com.lunz.cpfw.web.entities.helloworld;
 import com.lunz.cpfw.web.model.DemoSearchModel;
 import com.lunz.cpfw.web.services.HelloWorldService;
-
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
-import com.lunz.cpfw.core.interaction.PagingOptions;
-import com.lunz.cpfw.core.service.WebApiResult;
+import java.util.concurrent.Future;
 
 @RestController
 @Api(tags = "Demo")
 public class DemoController extends BaseV1Controller {
-	@Value("${env.env-value}")
-	String envValue;
+//	@Value("${env.env-value}")
+//	String envValue;
 	
     @Autowired
     HelloWorldService helloworldService;
@@ -77,9 +68,9 @@ RequestContextHolder.setRequestAttributes(sra, true);
         return WebApiResult.ok(returnStr);
     }
     
-    @ApiOperation("环境test")
-    @GetMapping("/demo/demo6")
-    public String  demo6() {
-		return envValue;
-	}
+//    @ApiOperation("环境test")
+//    @GetMapping("/demo/demo6")
+//    public String  demo6() {
+//		return envValue;
+//	}
 }

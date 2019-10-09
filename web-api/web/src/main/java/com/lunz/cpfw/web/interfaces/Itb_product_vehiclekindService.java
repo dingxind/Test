@@ -5,6 +5,7 @@ import com.lunz.cpfw.core.interaction.PagingOptions;
 import com.lunz.cpfw.core.service.WebApiResult;
 import com.lunz.cpfw.web.entities.tb_product_vehiclekind;
 
+import java.text.ParseException;
 import java.util.concurrent.Future;
 
 public interface Itb_product_vehiclekindService extends IService<tb_product_vehiclekind> {
@@ -22,7 +23,7 @@ public interface Itb_product_vehiclekindService extends IService<tb_product_vehi
      * @param vehiclekind
      * @return
      */
-    Integer addVehiclekind(tb_product_vehiclekind vehiclekind);
+    Integer addVehiclekind(tb_product_vehiclekind vehiclekind) throws ParseException;
 
     /**
      * 修改

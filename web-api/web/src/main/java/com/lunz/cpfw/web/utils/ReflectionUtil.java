@@ -126,7 +126,6 @@ public class ReflectionUtil {
 
     /**
      * 获取一个实体的每个属性的名称和值
-     * 
      * @param obj
      * @param ignoreArr 忽略的属性数组
      */

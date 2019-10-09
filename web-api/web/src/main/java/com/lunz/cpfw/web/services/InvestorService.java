@@ -81,7 +81,6 @@ public class InvestorService implements IInvestorService {
 
     /**
      * 新建/编辑资方
-     * 
      */
     @Async
     @Override
@@ -128,7 +127,7 @@ public class InvestorService implements IInvestorService {
                     // 判断附件资料是否有修改
                     EntityWrapper<tb_product_investorannex> annexWrapper = new EntityWrapper<>();
                     annexWrapper.eq("investorid", newInvestorInfo.getId());
-                    annexWrapper.setSqlSelect(new String[] { "url" });
+                    annexWrapper.setSqlSelect(new String[]{"url"});
                     List<tb_product_investorannex> annexList = annexService.selectList(annexWrapper);
 
                     List<String> list1 = annexList.stream().map(p -> p.getUrl()).collect(Collectors.toList());
@@ -168,7 +167,7 @@ public class InvestorService implements IInvestorService {
                 newInvestorInfo.setIscurrent(true);
                 newInvestorInfo.setVersion(1);
                 newInvestorInfo.setJsonstring(JSON.toJSONString(newInvestorInfo));
-                investorInfoService.insert(newInvestorInfo);// 资方基本信息
+                investorInfoService.insert(newInvestorInfo); // 资方基本信息
 
                 // 抵押信息
                 if (mortgageList != null) {

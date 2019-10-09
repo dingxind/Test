@@ -45,7 +45,6 @@ public class tb_product_vehicletypeService extends ServiceBase<tb_product_vehicl
         }
         if (list.contains(id)) {
             ArrayList<String> stringList = new ArrayList<>();
-            StringBuffer buffer = new StringBuffer();
             String join = null;
             HashMap<String, List> map = new HashMap<>();
 
@@ -54,22 +53,18 @@ public class tb_product_vehicletypeService extends ServiceBase<tb_product_vehicl
                 map.put(vehiclekind.getId(), listType);
             }
             Iterator<Map.Entry<String, List>> iterator = map.entrySet().iterator();
-            int i = 0;
             while (iterator.hasNext()) {
                 Map.Entry<String, List> next = iterator.next();
                 List nextValue = next.getValue();
-                if(nextValue != null) {
-                    if(nextValue.contains(id)){
+                if (nextValue != null) {
+                    if (nextValue.contains(id)) {
                         stringList.add(next.getKey());
                         join = StringUtil.join(Arrays.asList(stringList.toArray()), ",");
                     }
                 }
-
             }
             result = WebApiResult.error(join);
-
         } else {
-
             tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(id);
             if (vehicletype != null) {
                 vehicletype.setIsdisable(true);
@@ -80,9 +75,8 @@ public class tb_product_vehicletypeService extends ServiceBase<tb_product_vehicl
                 vehicletypeMapper.update(vehicletype, wrapper);
                 result = WebApiResult.ok();
             } else {
-                result = WebApiResult.error("没有指定数据");
+                result = WebApiResult.error("没有数据");
             }
-
         }
         return result;
     }

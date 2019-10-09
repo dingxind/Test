@@ -16,6 +16,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.lang.String;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +55,7 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         Map<String, Object> map = new HashMap<>();
         ArrayList<Object> list = new ArrayList<>();
         for (tb_product_vehicletype tpv : selectList) {
-            if (tpv.getIsdisable() == true) {
+            if ( tpv.getIsdisable() != null && tpv.getIsdisable() == true) {
                 map.put(String.valueOf(tpv.getId()), tpv.getName());
             }
         }
@@ -86,7 +87,11 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
                result =  WebApiResult.ok();
             } else {
                 //新建
-                vehiclekindService.addVehiclekind(vehiclekind);
+                try {
+                    vehiclekindService.addVehiclekind(vehiclekind);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 result= WebApiResult.ok();
                 break;
             }
@@ -124,7 +129,7 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         for (tb_product_vehicletype vehicletype : vehicletypeList) {
             Type type = new Type();
             type.setId(String.valueOf(vehicletype.getId()));
-            type.setName(String.valueOf(vehicletype.getName()));
+            type.setName(vehicletype.getName());
             type.setCode(String.valueOf(vehicletype.getCode()));
             types.add(type);
         }

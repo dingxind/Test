@@ -20,8 +20,8 @@ import com.lunz.cpfw.web.mappers.CommonMapper;
 
 @Component
 public class ClientIdInterceptor extends HandlerInterceptorAdapter {
-    @Value("${environment.open-authorization}")
-    private boolean openAuthorization;
+//    @Value("${environment.open-authorization}")
+//    private boolean openAuthorization;
 
     @Autowired
     private MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter;

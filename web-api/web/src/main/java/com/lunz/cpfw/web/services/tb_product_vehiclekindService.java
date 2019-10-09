@@ -13,15 +13,14 @@ import com.lunz.cpfw.web.mappers.CommonMapper;
 import com.lunz.cpfw.web.mappers.tb_product_vehiclekindMapper;
 import com.lunz.cpfw.web.mappers.tb_product_vehicletypeMapper;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.impl.execchain.TunnelRefusedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import java.lang.String;
-import java.lang.reflect.Array;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Future;
@@ -77,15 +76,16 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
      * @param vehiclekind
      * @return
      */
-    public Integer addVehiclekind(tb_product_vehiclekind vehiclekind) {
-
+    public Integer addVehiclekind(tb_product_vehiclekind vehiclekind) throws ParseException {
+    String time =  "2019-10-08";
+        Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(time);
         String ppvk = commonMapper.GeneratorKey("PPVK");
         vehiclekind.setId(ppvk);
         String puvk = commonMapper.GeneratorKey("PUVK");
         vehiclekind.setUniqueid(puvk);
         vehiclekind.setIsdisable(false);
         vehiclekind.setCreatedat(new Date());
-        vehiclekind.setUpdatedat(new Date());
+        vehiclekind.setUpdatedat(parse);
         vehiclekind.setJsonstring(JSON.toJSONString(vehiclekind));
         return mapper.insert(vehiclekind);
     }

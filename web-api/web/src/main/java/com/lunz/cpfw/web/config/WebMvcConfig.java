@@ -1,16 +1,10 @@
 package com.lunz.cpfw.web.config;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.alibaba.fastjson.support.spring.JSONPResponseBodyAdvice;
-import com.lunz.cpfw.web.interceptor.AuthorizationInterceptor;
-import com.lunz.cpfw.web.interceptor.ClientIdInterceptor;
 import com.lunz.cpfw.web.interceptor.LoginUserHandlerMethodArgumentResolver;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,12 +17,15 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Autowired
-    private AuthorizationInterceptor authorizationInterceptor;
-    @Autowired
-    private ClientIdInterceptor clientIdInterceptor;
+//    @Autowired
+//    private AuthorizationInterceptor authorizationInterceptor;
+//    @Autowired
+//    private ClientIdInterceptor clientIdInterceptor;
 
     @Autowired
     private LoginUserHandlerMethodArgumentResolver loginUserHandlerMethodArgumentResolver;
@@ -41,8 +38,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authorizationInterceptor).addPathPatterns("/api/v1/**");
-        registry.addInterceptor(clientIdInterceptor).addPathPatterns("/api/v1/**");
+//        registry.addInterceptor(authorizationInterceptor).addPathPatterns("/api/v1/**");
+//        registry.addInterceptor(clientIdInterceptor).addPathPatterns("/api/v1/**");
     }
      
     @Override
