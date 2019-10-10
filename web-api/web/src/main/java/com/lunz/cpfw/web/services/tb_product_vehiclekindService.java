@@ -18,6 +18,7 @@ import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.jws.WebResult;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -72,20 +73,19 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
 
     /**
      * 添加
-     *
      * @param vehiclekind
      * @return
      */
     public Integer addVehiclekind(tb_product_vehiclekind vehiclekind) throws ParseException {
-    String time =  "2019-10-08";
-        Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(time);
+        //id
         String ppvk = commonMapper.GeneratorKey("PPVK");
         vehiclekind.setId(ppvk);
+        //唯一id
         String puvk = commonMapper.GeneratorKey("PUVK");
         vehiclekind.setUniqueid(puvk);
+//        vehiclekind.setCreatedat(new Date());
+//        vehiclekind.setUpdatedat(new Date());
         vehiclekind.setIsdisable(false);
-        vehiclekind.setCreatedat(new Date());
-        vehiclekind.setUpdatedat(parse);
         vehiclekind.setJsonstring(JSON.toJSONString(vehiclekind));
         return mapper.insert(vehiclekind);
     }
@@ -96,7 +96,7 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
     public Integer updateVehiclekind(tb_product_vehiclekind vehiclekind) {
         EntityWrapper<tb_product_vehiclekind> wrapper = new EntityWrapper<>();
         wrapper.eq("id", vehiclekind.getId());
-        vehiclekind.setUpdatedat(new Date());
+//        vehiclekind.setUpdatedat(new Date());
         vehiclekind.setJsonstring(null);
         vehiclekind.setJsonstring(JSON.toJSONString(vehiclekind));
         Integer update = mapper.update(vehiclekind, wrapper);
@@ -112,17 +112,14 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
         tb_product_vehiclekind vehiclekind = mapper.selectById(id);
         List list = new ArrayList();
         List<String> stringList = JSON.parseArray(vehiclekind.getType(), String.class);
-        int i = 0; // 停用的循环的次数 ,若该次数等于type中类别的个数，则证明全都是停用的，否则就没有停用。
         for (String str : stringList) {
             tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(str);
             if (vehicletype.getIsdisable() == true){
                 list.add(vehicletype.getName());
-            } else{
-                i++;
             }
         }
-//        System.out.println(i);
-        if (i == stringList.size()) {
+
+        if (list.size()==0) {
             vehiclekind.setIsdisable(false);
             vehiclekind.setJsonstring(null);
             vehiclekind.setJsonstring(JSON.toJSONString(vehiclekind));
@@ -148,19 +145,16 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
         List list = new ArrayList();
         tb_product_vehiclekind vehiclekind = mapper.selectById(id);
         List<String> stringList = JSON.parseArray(vehiclekind.getType(), String.class);
-        int i = 0 ;
         if(!CollectionUtils.isEmpty(stringList)){
         for (String str : stringList) {
             tb_product_vehicletype vehicletype = vehicletypeMapper.selectById(str);
             if (vehicletype.getIsdisable() == false) {
                 list.add(vehicletype.getName());
-            }else {
-                i++;
             }
 
         }
         }
-        if (i == stringList.size()) {
+        if (list.size()==0) {
             vehiclekind.setIsdisable(true);
             vehiclekind.setJsonstring(null);
             vehiclekind.setJsonstring(JSON.toJSONString(vehiclekind));
@@ -174,5 +168,6 @@ public class tb_product_vehiclekindService extends ServiceBase<tb_product_vehicl
         }
         return result;
     }
+
 
 }

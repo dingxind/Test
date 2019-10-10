@@ -1,7 +1,6 @@
 package com.lunz.cpfw.web.interceptor;
 
 import com.lunz.cpfw.core.utils.ServletUtils;
-
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -19,8 +18,8 @@ import org.springframework.web.method.support.ModelAndViewContainer;
  */
 @Component
 public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
-    //@Autowired
-    //private SysUserService userService;
+//    @Autowired
+//    private SysUserService userService;
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {

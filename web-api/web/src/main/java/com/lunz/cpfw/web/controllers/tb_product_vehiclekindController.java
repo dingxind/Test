@@ -43,7 +43,6 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
     public WebApiResult findByPage(@RequestBody PagingOptions pagingOptions) throws Exception {
 
         Future<WebApiResult> result = vehiclekindService.queryPagingResult(pagingOptions );
-        int i=1;
         return result.get();
     }
 
@@ -52,14 +51,15 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
     @GetMapping("/saveToPage")
     public WebApiResult saveToPage() {
         List<tb_product_vehicletype> selectList = vehiclektypeService.selectList(null);
-        Map<String, Object> map = new HashMap<>();
         ArrayList<Object> list = new ArrayList<>();
         for (tb_product_vehicletype tpv : selectList) {
             if ( tpv.getIsdisable() != null && tpv.getIsdisable() == true) {
-                map.put(String.valueOf(tpv.getId()), tpv.getName());
+                Map<String, Object> map = new HashMap<>();
+                map.put("name", tpv.getName());
+                map.put("id", tpv.getId());
+                list.add(map);
             }
         }
-        list.add(map);
         return WebApiResult.ok(list);
 
     }
@@ -85,6 +85,7 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
 
                 vehiclekindService.updateVehiclekind(vehiclekind);
                result =  WebApiResult.ok();
+               break;
             } else {
                 //新建
                 try {
@@ -155,5 +156,17 @@ public class tb_product_vehiclekindController extends BaseV1Controller {
         WebApiResult result = vehiclekindService.startVehicle(id);
         return result;
     }
+
+    /**
+     * 删除
+     */
+    @ApiOperation("删除")
+    @GetMapping("/delete/{id}")
+    public WebApiResult deleteById(@PathVariable String id){
+        boolean b = vehiclekindService.deleteById(id);
+        return  WebApiResult.ok(b);
+    }
+
+
 
 }

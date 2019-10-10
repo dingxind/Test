@@ -12,29 +12,31 @@ package com.lunz.cpfw.web.handler;
 
 import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Component
 public class MyMetaObjectHandler extends MetaObjectHandler {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyMetaObjectHandler.class);
-
-    @Override
     public void insertFill(MetaObject metaObject) {
-        LOGGER.info("start insert fill ....");
-        this.setFieldValByName("createdat", new Date(), metaObject);//版本号3.0.6以及之前的版本
-        this.setFieldValByName("updatedat", new Date(), metaObject);
-        //this.setInsertFieldValByName("operator", "Jerry", metaObject);//@since 快照：3.0.7.2-SNAPSHOT， @since 正式版暂未发布3.0.7
+        Object createDate = this.getFieldValByName("createdat", metaObject);
+        if (null == createDate) {
+            /**
+             * 设置实体属性setter进去的值，优先级要高于自动填充的值。
+             * 如果实体没有设置该属性，就给默认值，防止entity的setter值被覆盖。
+             */
+            this.setFieldValByName("createdat", new Date(), metaObject);
+        }
+        Object modifyDate = this.getFieldValByName("updatedat", metaObject);
+        if (null == modifyDate) {
+            this.setFieldValByName("updatedat", new Date(), metaObject);
+        }
     }
-
-    @Override
     public void updateFill(MetaObject metaObject) {
-        LOGGER.info("start update fill ....");
-        this.setFieldValByName("updatedat", new Date(), metaObject);
-        //this.setUpdateFieldValByName("operator", "Tom", metaObject);//@since 快照：3.0.7.2-SNAPSHOT， @since 正式版暂未发布3.0.7
+        Object modifyDate = this.getFieldValByName("updatedat", metaObject);
+        if (null == modifyDate) {
+            this.setFieldValByName("updatedat", new Date(), metaObject);
+        }
     }
 }
+

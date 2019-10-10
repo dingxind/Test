@@ -35,16 +35,19 @@ public class tb_product_vehiclekind {
     @TableField(fill = FieldFill.INSERT)
     private Date createdat;
 
-    private String createdbyid;
-
+//    @TableField(fill = FieldFill.INSERT , update="NOW()")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updatedat;
+
+    private String createdbyid;
+
 
     private String updatedbyid;
 
     @TableLogic
     private Boolean deleted;
 
+//    @TableField(fill = FieldFill.DEFAULT,update = "now()")
     private Date deletedat;
 
     private String deletedbyid;

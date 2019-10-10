@@ -21,6 +21,7 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.lunz.cpfw.DemoApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +30,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = DemoApplication.class)
 public class CodeGenerator {
     @Test
     public void genCode() {
@@ -82,7 +83,7 @@ public class CodeGenerator {
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);
 
-//        strategy.setLogicDeleteFieldName("is_deleted");
+        strategy.setLogicDeleteFieldName("deleted");
         strategy.setEntityBooleanColumnRemoveIsPrefix(true);
         TableFill createdAt = new TableFill("createdAt", FieldFill.INSERT);
         TableFill updatedAt = new TableFill("updatedAt", FieldFill.INSERT_UPDATE);
@@ -91,11 +92,9 @@ public class CodeGenerator {
         tableFills.add(updatedAt);
         strategy.setTableFillList(tableFills);
         strategy.setVersionFieldName("version");
-//        strategy.setRestControllerStyle(true);
+        strategy.setRestControllerStyle(true);
         // 公共父类
 //        strategy.setSuperControllerClass("com.lunz.cpfw.web.controllers.BaseV1Controller.java");
-        // 写于父类中的公共字段
-        strategy.setControllerMappingHyphenStyle(true);
         mpg.setStrategy(strategy);
 
         mpg.execute();

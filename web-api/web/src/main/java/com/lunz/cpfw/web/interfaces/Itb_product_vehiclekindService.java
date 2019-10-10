@@ -47,4 +47,5 @@ public interface Itb_product_vehiclekindService extends IService<tb_product_vehi
      * @return
      */
     WebApiResult stopVehicle(String id);
+
 }
